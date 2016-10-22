@@ -1,0 +1,82 @@
+html {
+	background-color: #333333;
+}
+
+body {
+    /*padding: 50px;*/
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #333333;
+}
+
+.fa-bars {
+	color: #737373;
+}
+
+.nav-md, .nav-sm, .nav-lg, .nav_title, .left_col {
+	background-color: #333333;
+	color: #737373;
+}
+
+.mouse:hover {
+	color: red;
+	cursor: pointer;
+}
+
+.grid {
+	background-color: black;
+	display: flex; 
+	flex-direction: column; 
+	text-align: center; 
+	height: 100%;
+}
+
+.grid-row {
+	flex: 1; 
+	display: flex;
+}
+
+.grid-row:first-child {
+	border-bottom: 1px #737373 solid
+}
+
+.tile {
+	background-color: grey;
+	flex: 1;
+	border-right: 1px #737373 solid;
+	line-height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.tile > i {
+	font-size: 150px;
+}
+
+.tile:hover {
+	background-color: #737373;
+}
+
+.tile:hover > i {
+	font-size: 200px;
+}
+
+.color-tile {
+	opacity: 0.8;
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.color-tile > i {
+	font-size: 150px;
+}
+
+.color-tile:hover {
+	opacity: 1;
+}
+
+.color-tile:hover > i {
+	font-size: 200px;
+}

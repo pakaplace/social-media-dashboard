@@ -1,0 +1,268 @@
+<html>
+<head>
+<style>
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+}
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  font-weight: 300;
+}
+body ::-webkit-input-placeholder {
+  /* WebKit browsers */
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  font-weight: 300;
+}
+body :-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  opacity: 1;
+  font-weight: 300;
+}
+body ::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  opacity: 1;
+  font-weight: 300;
+}
+body :-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  font-family: 'Source Sans Pro', sans-serif;
+  color: white;
+  font-weight: 300;
+}
+.wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.7) url(https://pbs.twimg.com/media/CpMxb72UkAAiNTY.jpg) no-repeat;
+  background-blend-mode: overlay;
+  background-size: cover; 
+}
+.wrapper.form-success .container h1 {
+  transform: translateY(85px);
+}
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 80px 0;
+  height: 400px;
+  text-align: center;
+}
+.container h1 {
+  font-size: 40px;
+  transition-duration: 1s;
+  transition-timing-function: ease-in-put;
+  font-weight: 200;
+}
+form {
+  padding: 20px 0;
+  position: relative;
+  z-index: 2;
+}
+form input {
+  appearance: none;
+  outline: 0;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.2);
+  width: 250px;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+  transition-duration: 0.25s;
+  font-weight: 300;
+}
+form input:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+form input:focus {
+  background-color: white;
+  width: 300px;
+  color: #2A3F54;
+}
+form button {
+  appearance: none;
+  background-color: white;
+  border: 1px solid white;
+  color: #2A3F54;
+  width: 250px;
+  cursor: pointer;
+  transition-duration: 0.25s;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+}
+form button:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+a {
+  text-decoration: none;
+  color: white;
+  appearance: none;
+  background-color: white;
+  border: 1px solid white;
+  width: 250px;
+  cursor: pointer;
+  transition-duration: 0.25s;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+}
+
+.gallery {
+  list-style: none;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.gallery-item {
+  margin: 10px;
+  padding: 0px;
+  display:inline-block;
+  float:none;
+  text-align:left;
+}
+div.imgContainer{
+  min-width: 210px;
+  min-height: 150px;
+  display:inline-block;
+  margin: 15px;
+}
+.imgContainer h2 {
+  font-weight: 900;
+  color: white;
+  text-transform: uppercase;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 2rem;
+  transform: translate(-50%, -50%);
+}
+.gallery-item:after{
+  width: 100%;
+  height:100%;
+  position: absolute;
+  background:linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    );
+}
+.autoModal.modal .modal-body{
+    max-height: 100%;
+    text-align: center;
+    display: ;
+}
+
+#register-button {
+  border: 1px solid white;
+  background: transparent;
+}
+#register-button:hover {
+  color: white;
+  background-color: rgba(0,0,0,.5);
+}
+</style>
+</head>
+<body>
+   <div id="categories" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="autoModal modal-content gallery">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Select Categories</h4>
+        </div>
+        <div class="autoModal modal-body">
+        <!-- sports -->
+            <div class="col-xs-6 col-md-4 col-lg-4 imgContainer">
+            <h2> sports</h2>
+              <img class=" gallery-item" src= "http://placehold.it/210x150"> 
+            </div>
+        <!-- Fashion -->
+            <div class="col-xs-6 col-md-4 col-lg-4 imgContainer">
+            <h2> fashion</h2>
+              <img class="gallery-item" src= "http://placehold.it/210x150">
+            </div>
+        <!-- Travel -->
+            <div class="col-xs-6 col-md-4 col-lg-4 imgContainer">
+            <h2> travel</h2>
+              <img class= "gallery-item" src= "http://placehold.it/210x150">
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+	<div class="wrapper">
+			<div class="container">
+        <img src="https://static1.squarespace.com/static/ta/579a4a909f7456c1d12301e9/5/assets/Team10_logo.png" height="150" width="150"/>
+				<h1 style="margin: 0">Register</h1>
+
+				<form method="post" role="form">
+        {{#if message}}
+        <p>{{message}}</p>
+        {{/if}}
+					<input type="text" name="companyName" placeholder="Company Name">
+	        <input  type="text" name="email" placeholder="Email">
+          <input  type="text" name="phoneNumber" placeholder="Phone Number">
+          <input  type="text" name="estimatedBudget" placeholder="Estimated Budget">
+                    <input type = "text" name="userCountry" data-validation="country" placeholder="Nationality">
+          <input type="text" name="userState" data-validation="federatestate" placeholder="Current State">
+          <input type="text" name="userCity" data-validation="" placeholder="Current City">
+					<input type="password" name="password" placeholder="Password">
+	        <input type="password" name="passwordagain" placeholder="Confirm Password">
+          <button type="button" class="form button" style="color:grey" data-toggle="modal" data-target="#categories">Select up to three categories</button>
+          <input type="text" name="selectedCategories" id="selectedCategories" placeholder="Selected categories">
+					<button type="submit" id="login-button">Register</button>
+					<a href="/login" id="register-button">Back to Login</a>
+				</form>
+			</div>
+		</div>
+        <script> // fix- country and state don't appear but validation works
+    var categoryArr = []; //a
+    $('.imgContainer').click(function(e){
+      var category1 = $(this).children()
+      var category = $(this).children("h2").html()
+      e.preventDefault(); // jQuery for return false
+      if($(this).data('clicked')) {
+        $(this).data('clicked', false);
+        var index = categoryArr.indexOf(category)
+        categoryArr.splice(index, 1);
+      }
+      else{
+        $(this).data('clicked', true);
+        categoryArr.push(category);
+      }
+      console.log("Reached");
+      console.log("Categories value ~~~", categoryArr.join(','));
+      $('#selectedCategories').val(categoryArr.join(",")) //passes through categories joined by , into input field
+      
+    });
+      $.validate({
+        modules : 'location',
+        onModulesLoaded : function() {
+          $('input[name="userCountry"]').suggestCountry();
+          $('input[name="userState"]').suggestState();
+        }
+      });
+    </script>
+</body>
+</html>

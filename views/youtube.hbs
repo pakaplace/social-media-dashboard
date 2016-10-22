@@ -1,0 +1,44 @@
+<h1>Channel: {{channelName}}</h1>
+<h1>Channel Views: {{channel.viewCount}}</h1>
+<h1>Subscribers: {{channel.subscriberCount}}</h1>
+
+<h2>Yearly Data</h2>
+{{#each yeardata}}
+<p>Title: {{snippet.title}}</p>
+<p>Description: {{snippet.description}}</p>
+<p>Views: {{stats.viewCount}}</p>
+<p>Likes: {{stats.likeCount}}</p>
+<p>Dislikes: {{stats.dislikeCount}}</p>
+<p>Favorites: {{stats.favoriteCount}}</p>
+<p>Comments: {{stats.commentCount}}</p>
+{{/each}}
+<h2>Monthly Data</h2>
+{{#each monthdata}}
+<p>Title: {{snippet.title}}</p>
+<p>Description: {{snippet.description}}</p>
+<p>Views: {{stats.viewCount}}</p>
+<p>Likes: {{stats.likeCount}}</p>
+<p>Dislikes: {{stats.dislikeCount}}</p>
+<p>Favorites: {{stats.favoriteCount}}</p>
+<p>Comments: {{stats.commentCount}}</p>
+{{/each}}
+<h2>Weekly Data</h2>
+{{#each weekdata}}
+<p>Title: {{snippet.title}}</p>
+<p>Description: {{snippet.description}}</p>
+<p>Views: {{stats.viewCount}}</p>
+<p>Likes: {{stats.likeCount}}</p>
+<p>Dislikes: {{stats.dislikeCount}}</p>
+<p>Favorites: {{stats.favoriteCount}}</p>
+<p>Comments: {{stats.commentCount}}</p>
+{{/each}}
+<h2>Daily Data</h2>
+{{#each daydata}}
+<p>Title: {{snippet.title}}</p>
+<p>Description: {{snippet.description}}</p>
+<p>Views: {{stats.viewCount}}</p>
+<p>Likes: {{stats.likeCount}}</p>
+<p>Dislikes: {{stats.dislikeCount}}</p>
+<p>Favorites: {{stats.favoriteCount}}</p>
+<p>Comments: {{stats.commentCount}}</p>
+{{/each}}

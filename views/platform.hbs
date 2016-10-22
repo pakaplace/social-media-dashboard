@@ -1,0 +1,363 @@
+<style>
+
+  .triggerForm .list-group {
+    margin-bottom: 0;
+  }
+
+  .triggerForm .list-group .list-group-item {
+    border-radius: 0;
+  }
+
+  .triggerForm .list-group .list-group-item:first-child {
+    border-top-width: 0;
+  }
+
+  .triggerForm .list-group .list-group-item:last-child {
+    border-bottom-width: 0;
+  }
+
+  .list-group-item {
+    display: flex;
+    justify-content: flex-end;
+    vertical-align: middle;
+    padding: 15px;
+  }
+
+  .material-switch > input[type="checkbox"] {
+    display: none;   
+  }
+
+  .material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative; 
+    width: 40px;  
+  }
+
+  .material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 16px;
+    margin-top: -8px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+  }
+  .material-switch > label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 24px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 24px;
+  }
+  .material-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+  }
+  .material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+  }
+
+  .day {
+    background-color: white;
+    width: 40%;
+    margin: 0 20%;
+  /*     position: absolute;
+  left: 20%;
+  margin-top: -5px; */
+  }
+
+  .modal-body {
+    padding: 0;
+  }
+
+  .fix {
+    margin-bottom: 0;
+    border-width: 0;
+  }
+
+  .pad {
+    padding: 15px;
+  }
+
+  .nav_menu {
+    margin: 0;
+    border: none;
+    padding: 10px 5px;
+  }
+
+  .toggle {
+    padding-top: 0;
+  }
+
+  .trigger-btn {
+    background-color: grey;
+    border: none;
+    color: white;
+  }
+
+  .trigger-btn:hover {
+    background-color: black;
+  }
+
+  .black {
+    background-color: black;
+  }
+
+  #logout {
+    background-color: black;
+    color: white;
+    width: 50%;
+    border-left: 1px white solid;
+  }
+
+  #integrate {
+    background-color: black;
+    color: white;
+    width: 50%;
+  }
+</style>
+
+<body class="nav-md">
+  <div class="container body">
+    <div class="main_container">
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+          <div class="navbar nav_title" style="border-bottom: 1px solid white;">
+            <a href="/" class="site_title"><img src="https://static1.squarespace.com/static/ta/579a4a909f7456c1d12301e9/5/assets/Team10_logo.png" height="45" width="45" style="margin-bottom: 10px"/> <span>Dashboard</span></a>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <br />
+
+          <!-- sidebar menu -->
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+              <h3 style="border-bottom: 1px solid white; padding-bottom: 5px">Welcome, {{me.username}}</h3>
+              <ul class="nav side-menu">
+                {{#if admin}}
+                {{#each userArray}}
+                <li><a><i class="fa fa-edit"></i> {{username}} <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                      <li><a href="/dashboard/{{id}}">Overview</a></li>
+                      <li><a href="/dashboard/youtube/{{id}}">Youtube</a></li>
+                      <li><a href="/dashboard/instagram/{{id}}">Instagram</a></li>
+                      <li><a href="/dashboard/twitter/{{id}}">Twitter</a></li>
+                      <li><a href="/dashboard/facebook/{{id}}">Facebook</a></li>
+                      <li><a href="/dashboard/vine/{{id}}">Vine</a></li>
+                  </ul>
+                </li>
+                {{/each}}
+                {{else}}
+                <li><a><i class="fa fa-edit"></i> {{me.username}} <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                      <li><a href="/dashboard/{{me.id}}">Overview</a></li>
+                      <li><a href="/dashboard/youtube/{{me.id}}">Youtube</a></li>
+                      <li><a href="/dashboard/instagram/{{me.id}}">Instagram</a></li>
+                      <li><a href="/dashboard/twitter/{{me.id}}">Twitter</a></li>
+                      <li><a href="/dashboard/facebook/{{me.id}}">Facebook</a></li>
+                      <li><a href="/dashboard/vine/{{me.id}}">Vine</a></li>
+                  </ul>
+                </li>
+                {{/if}}
+                
+              </ul>
+            </div>
+
+          </div>
+          <!-- /sidebar menu -->
+
+            <div class="sidebar-footer hidden-small black" style="text-align: center">
+            <a data-toggle="tooltip" data-placement="top" title="Back to integration" id="integrate" href="/integrate">
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Logout" id="logout" href="/logout">
+              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+          </div>
+          <!-- /menu footer buttons -->
+        </div>
+      </div>
+
+      <!-- top navigation -->
+      <div class="top_nav">
+        <div class="nav_menu">
+          <nav class="" role="navigation">
+            <div class="nav toggle">
+              <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li class="">
+                <ul class="dropdown-menu dropdown-usermenu pull-right">
+                  <li><a href="javascript:;"> Profile</a></li>
+                  <li>
+                    <a href="javascript:;">
+                      <span class="badge bg-red pull-right">50%</span>
+                      <span>Settings</span>
+                    </a>
+                  </li>
+                  <li><a href="javascript:;">Help</a></li>
+                  <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- /top navigation -->
+
+      <!-- page content -->
+      <div class="right_col" role="main" style="background: white">
+        <div class="">
+          <div>
+          {{#each data.posts}}
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>{{title}}<small>{{description}}</small></h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <canvas id="lineChart-{{@index}}" ></canvas>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+          </div>
+        </div>
+      </div>
+
+
+      <!-- /page content -->
+
+      <!-- footer content -->
+      <footer>
+        <div class="pull-right">
+
+        </div>
+        <div class="clearfix"></div>
+      </footer>
+      <!-- /footer content -->
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="/vendors/jquery/dist/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- FastClick -->
+  <script src="/vendors/fastclick/lib/fastclick.js"></script>
+  <!-- NProgress -->
+  <script src="/vendors/nprogress/nprogress.js"></script>
+  <!-- Datatables -->
+  <script src="/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script src="/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+  <script src="/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+  <script src="/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+  <script src="/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+  <script src="/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+  <script src="/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+  <script src="/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+  <script src="/vendors/datatables.net-scroller/js/datatables.scroller.min.js"></script>
+  <script src="/vendors/jszip/dist/jszip.min.js"></script>
+  <script src="/vendors/pdfmake/build/pdfmake.min.js"></script>
+  <script src="/vendors/pdfmake/build/vfs_fonts.js"></script>
+
+  <!-- Custom Theme Scripts -->
+  <script src="/build/js/custom.min.js"></script>
+
+  {{!-- modal stuff --}}
+  <script type="text/javascript">
+    $("input[type='checkbox']").change(function() {
+      var textBox = $(this).closest('li').find(".day");
+
+      textBox.attr('disabled', !textBox.attr('disabled'));
+      if (textBox.attr('disabled')) {
+        textBox.css("background-color", "#ccc");
+      }
+      else {
+        textBox.css("background-color", "#fff");
+      }
+    });
+
+    $(".setTrigger").click(function() {
+      $(".triggerForm").submit();
+    })
+  </script>
+
+  <!-- Chart.js -->
+  <script src="/vendors/Chart.js/dist/Chart.min.js"></script>
+
+  <script>
+
+    
+    Chart.defaults.global.legend = {
+      enabled: false
+    };
+
+    // Line chart
+    {{#each data.change}}
+      var labels = [];
+      var n = {{{likes.length}}} || 0;
+      j = n = (n && n > 0 && n < 30) ? n : 30;
+      while (n --> 0) { labels.push(n);}
+      var ctx = document.getElementById("lineChart-{{@index}}");
+      var lineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: "Likes",
+            backgroundColor: "rgba(3, 88, 106, 0.3)",
+            borderColor: "rgba(3, 88, 106, 0.70)",
+            pointBorderColor: "rgba(3, 88, 106, 0.70)",
+            pointBackgroundColor: "rgba(3, 88, 106, 0.70)",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(151,187,205,1)",
+            pointBorderWidth: 1,
+            data: [{{{likes}}}]
+          }],
+        },
+        options: {
+          scales: {
+            yAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Likes'
+              },
+              ticks: {
+                // beginAtZero:true,
+                suggestedMin: 0,
+                stepSize: 5
+              }
+            }],
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: 'Last ' + j +' Days'
+              }
+            }]
+          }
+        }
+      });
+    {{/each}}
+  </script>
+</body>

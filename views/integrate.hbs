@@ -1,0 +1,121 @@
+<style>
+
+	body {
+		background-color: white;
+	}
+
+	.vine:hover {
+		cursor: pointer;
+	}
+
+	.modal-body {
+      padding: 1;
+    }
+
+    .input {
+    	box-shadow: none;
+    	margin-bottom: 10px;
+    	border-color: #00a478;
+    	border-width: 0px;
+    	border-bottom-width: 1px;
+    }
+
+    .submit {
+    	border: none;
+    	border-radius: 0;
+    	background-color: #00a478;
+    	color: white;
+    }
+
+    .mod {
+	    transform: translateY(calc(50vh + 20px) ) !important;
+    }
+
+    .inner-mod {
+    	width: 300px;
+    	margin: 0 auto;
+    }
+
+
+</style>
+<div id="vine" class="modal fade" role="dialog">
+	<div class="modal-dialog mod">
+	  <!-- Modal content-->
+	  <div class="modal-content inner-mod" >
+	    <div class="modal-header">
+	      <button type="button" class="close" data-dismiss="modal">&times;</button>
+	      <h4 class="modal-title">Integrate with Vine</h4>
+	    </div>
+	    <div class="modal-body">
+	    	<form method="post" style="width: 75%; margin: auto">
+			    <div class="row">
+					<input class="form-control input" type="text" name="username" placeholder="Vine Email">
+				</div>
+				<div class="row">
+					<input class="form-control input" type="password" name="password" placeholder="Vine Password">
+				</div> 
+				<div class="row">
+					<input class="form-control btn btn-default submit" type="submit" value="Submit"/>
+				</div>
+			</form>
+	    </div>
+	  </div>
+	</div>
+</div>
+
+<div class="grid">
+	<div class="grid-row">
+		{{#if profile.facebook.displayName}}
+		<a href="/auth/deleteFb" class="color-tile" style="background-color: #3B5998"> 
+		<!-- use route that deletes shit -->
+			<i class="fa fa-facebook" style="color: white"></i>
+
+		</a>
+		{{else}}
+		<a href="/auth/facebook" class="tile">
+			<i class="fa fa-facebook" style="color: white"></i>
+		</a>
+		{{/if}}
+		{{#if profile.youtube.displayName}}
+		<a href="/auth/youtube" class="color-tile" style="background-color: #e52d27">
+			<i class="fa fa-youtube-square" style="color: white"></i>
+		</a>
+		{{else}}
+		<a href="/auth/youtube" class="tile">
+			<i class="fa fa-youtube-square" style="color: white"></i>
+		</a>
+		{{/if}}
+		{{#if profile.instagram.displayName}}
+		<a href="/auth/instagram" class="color-tile" style="background-color: #ffc838">
+			<i class="fa fa-instagram" style="color: white"></i>
+		</a>
+		{{else}}
+		<a href="/auth/instagram" class="tile">
+			<i class="fa fa-instagram" style="color: white"></i>
+		</a>
+		{{/if}}
+	</div>
+	<div class="grid-row">
+		{{#if profile.twitter.displayName}}
+		<a href="/auth/twitter" class="color-tile" style="background-color: #4099FF">
+			<i class="fa fa-twitter" style="color: white"></i>
+		</a>
+		{{else}}
+		<a href="/auth/twitter" class="tile">
+			<i class="fa fa-twitter" style="color: white"></i>
+		</a>
+		{{/if}}
+		{{#if profile.vine.displayName}}
+		<div class="vine color-tile" style="background-color: #00a478" data-toggle="modal" data-target="#vine">
+			<i class="fa fa-vine" style="color: white"></i>
+		</div>
+		{{else}}
+		<div class="vine tile" data-toggle="modal" data-target="#vine">
+			<i class="fa fa-vine" style="color: white"></i>
+		</div>
+		{{/if}}
+		<a href="/dashboard" class="color-tile" style="background-color: black">
+			<i class="fa fa-home" style="color: white"></i>
+	    </a>
+	</div>
+</div>

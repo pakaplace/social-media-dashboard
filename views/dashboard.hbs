@@ -1,0 +1,1098 @@
+<style>
+
+  .btn {
+    margin: 0;
+  }
+
+  .tile_count .tile_stats_count {
+    margin-bottom: 0; 
+    padding-top: 10px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  .top {
+    width: 25%;
+    margin-top: 10px;
+  }
+
+  .top_nav .navbar-right {
+    display: inline-block;
+    width: initial;
+  }
+
+  .fa-bars {
+    margin-top: 5px;
+  }
+
+  .triggerForm .list-group {
+    margin-bottom: 0;
+  }
+
+  .triggerForm .list-group .list-group-item {
+    border-radius: 0;
+  }
+
+  .triggerForm .list-group .list-group-item:first-child {
+    border-top-width: 0;
+  }
+
+  .triggerForm .list-group .list-group-item:last-child {
+    border-bottom-width: 0;
+  }
+
+  .list-group-item {
+    display: flex;
+    justify-content: flex-end;
+    vertical-align: middle;
+    padding: 15px;
+  }
+
+  .material-switch > input[type="checkbox"] {
+    display: none;   
+  }
+
+  .material-switch > label {
+    cursor: pointer;
+    height: 0px;
+    position: relative; 
+    width: 40px;  
+  }
+
+  .material-switch > label::before {
+    background: rgb(0, 0, 0);
+    box-shadow: inset 0px 0px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    content: '';
+    height: 16px;
+    margin-top: -8px;
+    position:absolute;
+    opacity: 0.3;
+    transition: all 0.4s ease-in-out;
+    width: 40px;
+  }
+  .material-switch > label::after {
+    background: rgb(255, 255, 255);
+    border-radius: 16px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    content: '';
+    height: 24px;
+    left: -4px;
+    margin-top: -8px;
+    position: absolute;
+    top: -4px;
+    transition: all 0.3s ease-in-out;
+    width: 24px;
+  }
+  .material-switch > input[type="checkbox"]:checked + label::before {
+    background: inherit;
+    opacity: 0.5;
+  }
+  .material-switch > input[type="checkbox"]:checked + label::after {
+    background: inherit;
+    left: 20px;
+  }
+
+  .day {
+    background-color: white;
+    width: 40%;
+    margin: 0 20%;
+  /*     position: absolute;
+  left: 20%;
+  margin-top: -5px; */
+  }
+
+  .modal-body {
+    padding: 0;
+  }
+
+  .fix {
+    margin-bottom: 0;
+    border-width: 0;
+  }
+
+  .pad {
+    padding: 15px;
+  }
+
+  .nav_menu {
+    margin: 0;
+    border: none;
+    padding: 10px 5px;
+  }
+
+  .toggle {
+    padding-top: 0;
+  }
+
+  .black {
+    background-color: black;
+  }
+
+  #logout {
+    background-color: black;
+    color: white;
+    width: 50%;
+    border-left: 1px white solid;
+  }
+
+  #integrate {
+    background-color: black;
+    color: white;
+    width: 50%;
+  }
+</style>
+
+<body class="nav-md">
+    <div id="snapchat" class="modal fade" role="dialog">
+      <div class="modal-dialog mod">
+        <!-- Modal content-->
+        <div class="modal-content inner-mod">
+          <div class="modal-header" style="background-color:black;">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><span style="color:white;">Update</span> <span 
+              style="color:#ffff00;">Snapchat</span></h4>
+          </div>
+          <div class="modal-body">
+              <form action="/snapchat/" method="post" style="width: 75%; margin: auto">
+                  <div class="row">
+                      <input class="form-control input" type="text" name="snapHandle" placeholder="Snapchat Handle" value="{{snapchat.displayName}}">
+                  </div>
+                  <div class="row">
+                      <input class="form-control input" type="number" name="snapFollowers" placeholder="Number of Followers" value="{{snapchat.followers}}">
+                  </div> 
+                  <div class="row">
+                      <input class="form-control btn btn-default submit" style=" background-color:#ffff00; color:black;" type="hidden" name="user" value="{{user._id}}"/>
+                  </div>
+                  <div class="row">
+                      <input class="form-control btn btn-default submit" style="
+                        background-color:#ffff00; color:black;" type="submit" value="Submit"/>
+                  </div>
+              </form>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+  <div id="music" class="modal fade" role="dialog">
+      <div class="modal-dialog mod">
+        <!-- Modal content-->
+        <div class="modal-content inner-mod" >
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Update <span style="color:#ff0f50;">Musical.ly</span></h4>
+          </div>
+          <div class="modal-body">
+              <form action="/music" method="post" style="width: 75%; margin: auto">
+                  <div class="row">
+                      <input class="form-control input" type="text" name="musicHandle" placeholder="Musical.ly Handle" value="{{music.displayName}}">
+                  </div>
+                  <div class="row">
+                      <input class="form-control input" type="number" name="musicFollowers" placeholder="Number of Followers" value="{{music.followers}}">
+                  </div> 
+                  <div class="row">
+                      <input class="form-control btn btn-default submit" style=" background-color:#ffff00; color:black;" type="hidden" name="user" value="{{user._id}}"/>
+                  </div>
+                  <div class="row">
+                      <input class="form-control btn btn-default submit" style="
+                        background-color:#ff0f50; color:white;" type="submit" value="Submit"/>
+                  </div>
+              </form>
+          </div>
+        </div>
+      </div>
+  </div>
+  <div id = "newCampaign" class = "modal fage" role= "dialogue">
+    <div class = "modal-dialog">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Set Triggers for {{user.username}}</h4>
+    </div>
+  </div>
+  <div id="triggers" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Set Triggers for {{user.username}}</h4>
+        </div>
+        <div class="modal-body">
+          <form method="post" class="triggerForm">
+            <div class="container">
+              <div class="row">
+                <div class="col-xs-12">
+                  <!-- List group -->
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <p>Facebook</p>
+                      {{#if on.facebook}}
+                        <input type="number" min="0" value="{{user.triggerFrequency.facebook.frequency}}" name="facebookDays" class="form-control day" aria-label="..." placeholder="Number of Days"/>
+                        <div class="material-switch pull-right">
+                          <input id="someSwitchOptionPrimary" name="facebook" type="checkbox" value="true" checked="checked"/>
+                          <label for="someSwitchOptionPrimary" class="label-primary"></label>
+                        </div>
+                      {{else}}
+                        <input type="number" min="0" value="{{user.triggerFrequency.facebook.frequency}}" name="facebookDays" disabled="true" class="form-control day" aria-label="..." placeholder="Number of Days"/>
+                        <div class="material-switch pull-right">
+                          <input id="someSwitchOptionPrimary" name="facebook" type="checkbox" value="true"/>
+                          <label for="someSwitchOptionPrimary" class="label-primary"></label>
+                        </div>
+                      {{/if}}
+                    </li>
+                    <li class="list-group-item">
+                      <p>Vine</p>
+                      {{#if on.vine}}
+                        <input type="number" min="0" value="{{user.triggerFrequency.vine.frequency}}" name="vineDays" class="form-control day" aria-label="..." placeholder="Number of Days"/>
+                        <div class="material-switch pull-right">
+                          <input id="someSwitchOptionSuccess" name="vine" type="checkbox" value="true" checked="checked"/>
+                          <label for="someSwitchOptionSuccess" class="label-success"></label>
+                        </div>
+                      {{else}}
+                        <input type="number" min="0" value="{{user.triggerFrequency.vine.frequency}}" name="vineDays" disabled="true" class="form-control day" aria-label="..." placeholder="Number of Days"/>
+                        <div class="material-switch pull-right">
+                          <input id="someSwitchOptionSuccess" name="vine" type="checkbox" value="true"/>
+                          <label for="someSwitchOptionSuccess" class="label-success"></label>
+                        </div>
+                      {{/if}}
+                    </li>
+                    <li class="list-group-item">
+                      <p>Twitter</p>
+                      {{#if on.twitter}}
+                        <input type="number" min="0" value="{{user.triggerFrequency.twitter.frequency}}" name="twitterDays" class="form-control day" aria-label="..." placeholder="Number of Days"/>
+                        <div class="material-switch pull-right">
+                          <input id="someSwitchOptionInfo" name="twitter" type="checkbox" value="true" checked="checked"/>
+                          <label for="someSwitchOptionInfo" class="label-info"></label>
+                        </div>
+                      {{else}}
+                        <input type="number" min="0" value="{{user.triggerFrequency.twitter.frequency}}" name="twitterDays" disabled="true" class="form-control day" aria-label="..." placeholder="Number of Days"/>
+                        <div class="material-switch pull-right">
+                          <input id="someSwitchOptionInfo" name="twitter" type="checkbox" value="true"/>
+                          <label for="someSwitchOptionInfo" class="label-info"></label>
+                        </div>
+                      {{/if}}
+                    </li>
+                    <li class="list-group-item">
+                      <p>Instagram</p>
+                      {{#if on.instagram}}
+                        <input type="number" min="0" value="{{user.triggerFrequency.instagram.frequency}}" name="instagramDays" class="form-control day" aria-label="..." placeholder="Number of Days"/>
+                        <div class="material-switch pull-right">
+                          <input id="someSwitchOptionWarning" name="instagram" type="checkbox" value="true" checked="checked"/>
+                          <label for="someSwitchOptionWarning" class="label-warning"></label>
+                        </div>
+                      {{else}}
+                        <input type="number" min="0" value="{{user.triggerFrequency.instagram.frequency}}" name="instagramDays" disabled="true" class="form-control day" aria-label="..." placeholder="Number of Days"/>
+                        <div class="material-switch pull-right">
+                          <input id="someSwitchOptionWarning" name="instagram" type="checkbox" value="true"/>
+                          <label for="someSwitchOptionWarning" class="label-warning"></label>
+                        </div>
+                      {{/if}}
+                    </li>
+                    <li class="list-group-item">
+                      <p>YouTube</p>
+                      {{#if on.youtube}}
+                        <input type="number" min="0" value="{{user.triggerFrequency.youtube.frequency}}" name="youtubeDays" class="form-control day" aria-label="..." placeholder="Number of Days"/>
+                        <div class="material-switch pull-right">
+                          <input id="someSwitchOptionDanger" name="youtube" type="checkbox" value="true" checked="checked"/>
+                          <label for="someSwitchOptionDanger" class="label-danger"></label>
+                        </div>
+                      {{else}}
+                        <input type="number" min="0" value="{{user.triggerFrequency.youtube.frequency}}" name="youtubeDays" disabled="true" class="form-control day" aria-label="..." placeholder="Number of Days"/>
+                        <div class="material-switch pull-right">
+                          <input id="someSwitchOptionDanger" name="youtube" type="checkbox" value="true"/>
+                          <label for="someSwitchOptionDanger" class="label-danger"></label>
+                        </div>
+                      {{/if}}
+                    </li>
+                  </ul>
+                </div>            
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary setTrigger">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container body">
+    <div class="main_container">
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+          <div class="navbar nav_title" style="border-bottom: 1px solid white;">
+            <a href="/" class="site_title"><img src="https://static1.squarespace.com/static/ta/579a4a909f7456c1d12301e9/5/assets/Team10_logo.png" height="45" width="45" style="margin-bottom: 10px"/> <span>Dashboard</span></a>
+          </div>
+
+          <div class="clearfix"></div>
+
+          <!-- menu profile quick info -->
+          {{!-- <div class="profile">
+            <div class="profile_pic">
+              <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+            </div>
+            <div class="profile_info">
+              <span>Welcome</span>
+              <h2>{{me.username}}</h2>
+            </div>
+          </div> --}}
+          <!-- /menu profile quick info -->
+
+          <br />
+
+          <!-- sidebar menu -->
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+              <h3 style="border-bottom: 1px solid white; padding-bottom: 5px">Welcome {{me.username}}</h3>
+              <ul class="nav side-menu">
+                {{!-- <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="index2.html">Dashboard2</a></li>
+                    <li><a href="index3.html">Dashboard3</a></li>
+                  </ul>
+                </li> --}}
+                {{#if admin}}
+                {{#each userArray}}
+                <li><a><i class="fa fa-edit"></i> {{username}} <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                      <li><a href="/dashboard/{{id}}">Overview</a></li>
+                      <li><a href="/dashboard/youtube/{{id}}">Youtube</a></li>
+                      <li><a href="/dashboard/instagram/{{id}}">Instagram</a></li>
+                      <li><a href="/dashboard/twitter/{{id}}">Twitter</a></li>
+                      <li><a href="/dashboard/facebook/{{id}}">Facebook</a></li>
+                      <li><a href="/dashboard/vine/{{id}}">Vine</a></li>
+                  </ul>
+                </li>
+                {{/each}}
+                {{else}}
+                <li><a><i class="fa fa-edit"></i> {{me.username}} <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu">
+                      <li><a href="/dashboard/{{me.id}}">Overview</a></li>
+                      <li><a href="/dashboard/youtube/{{me.id}}">Youtube</a></li>
+                      <li><a href="/dashboard/instagram/{{me.id}}">Instagram</a></li>
+                      <li><a href="/dashboard/twitter/{{me.id}}">Twitter</a></li>
+                      <li><a href="/dashboard/facebook/{{me.id}}">Facebook</a></li>
+                      <li><a href="/dashboard/vine/{{me.id}}">Vine</a></li>
+                  </ul>
+                </li>
+                {{/if}}
+              </ul>
+            </div>
+
+          </div>
+          <!-- /sidebar menu -->
+
+          <!-- /menu footer buttons -->
+            <div class="sidebar-footer hidden-small black" style="text-align: center">
+            <a data-toggle="tooltip" data-placement="top" title="Back to integration" id="integrate" href="/integrate">
+              <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+            </a>
+            <a data-toggle="tooltip" data-placement="top" title="Logout" id="logout" href="/logout">
+              <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+            </a>
+          </div>
+          <!-- /menu footer buttons -->
+        </div>
+      </div>
+
+      <!-- top navigation -->
+      <div class="top_nav">
+        <div class="nav_menu">
+          <nav class="" role="navigation">
+            <div class="nav toggle">
+              <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+            </div>
+            {{#if admin}}
+            <div style="float: left; margin-left: 30px"><img src="https://static1.squarespace.com/static/ta/579a4a909f7456c1d12301e9/5/assets/Team10_logo.png" height="40" width="40"/> Totals</div>
+            <li style="float: left; margin: 10px 0 0 10px"><i class="fa fa-instagram"></i> 
+            {{#if tot.instagram}}
+              {{tot.instagram}}
+            {{else}}
+              0
+            {{/if}}
+            </li>
+            <li style="float: left; margin: 10px 0 0 10px"><i class="fa fa-facebook"></i> 
+            {{#if tot.facebook}}
+              {{tot.facebook}}
+            {{else}}
+              0
+            {{/if}}</li>
+            <li style="float: left; margin: 10px 0 0 10px"><i class="fa fa-vine"></i> 
+            {{#if tot.vine}}
+              {{tot.vine}}
+            {{else}}
+              0
+            {{/if}}</li>
+            <li style="float: left; margin: 10px 0 0 10px"><i class="fa fa-youtube"></i> 
+            {{#if tot.youtube}}
+              {{tot.youtube}}
+            {{else}}
+              0
+            {{/if}}</li>
+            <li style="float: left; margin: 10px 0 0 10px"><i class="fa fa-snapchat"></i> 
+            {{#if tot.snapchat}}
+              {{tot.snapchat}}
+            {{else}}
+              0
+            {{/if}}</li>
+            <li style="float: left; margin: 10px 0 0 10px"><i class="fa fa-twitter"></i> 
+            {{#if tot.twitter}}
+              {{tot.twitter}}
+            {{else}}
+              0
+            {{/if}}</li>
+            <li style="float: left; margin: 10px 0 0 10px"><i class="fa fa-music"></i> 
+            {{#if tot.music}}
+              {{tot.music}}
+            {{else}}
+              0
+            {{/if}}</li>
+            {{/if}}
+
+            <ul class="nav navbar-nav navbar-right">
+              
+              <input id="copyAll" style="visibility: hidden; position: absolute; width: 0; height: 0;" value="Youtube: {{user.url.youtube}}, Instagram: {{user.url.instagram}}, Twitter:{{user.url.twitter}}, Facebook: {{user.url.facebook}}, Vine: {{user.url.vine}}, Snapchat: {{user.url.snapchat}}, Muscal.ly: {{user.url.music}}"/>
+              {{#if admin}}
+                <input id="copyTeamTen" style="visibility: hidden; position: absolute; width: 0; height: 0;" value="{{urlArray}}"/>
+                <button class="btn btn-default btn-sm" style="color:grey" onclick="copyToClipboard('#copyTeamTen')">Copy Team Ten Links</button>
+              {{/if}}
+              <button class="btn btn-default btn-sm" style="color:grey" onclick="copyToClipboard('#copyAll')">Copy my links</button>
+              {{#if admin}}
+              <button class="btn btn-default btn-sm" style="color:grey" data-toggle="modal" data-target="#triggers">Set Triggers for {{user.username}}</button>
+              {{/if}}
+              
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- /top navigation -->
+
+      <!-- page content -->
+      <div class="right_col" role="main" style="background: white">
+        <div class="">
+          <div class="row tile_count " style="margin-bottom: 0">
+
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count top">
+              <span class="count_top" style="color: #e52d27"><i class="fa fa-youtube"></i> Youtube Subscribers</span>
+               <div class="count">
+              {{#if platformData.recent.youtube.followers}}
+                {{platformData.recent.youtube.followers}}
+              {{else}}
+                0
+              {{/if}}
+              </div>
+              {{#if direction.youtube.up}}
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{change.youtube}}% </i> Since Yesterday</span>
+              {{else if direction.youtube.down}}
+              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>{{change.youtube}}% </i> Since Yesterday</span>
+              {{else}}
+              <span class="count_bottom"><i class="fa"></i>{{change.youtube}}% Since Yesterday</span>
+              {{/if}}
+              <br>
+              <button class="btn btn-default btn-sm" style="color:grey" onclick="copyToClipboard('#youtubeUrl')">Copy Link</button>
+              <input id="youtubeUrl" style="visibility: hidden" value={{user.url.youtube}} />
+            </div>
+
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count top">
+              <span class="count_top" style="color: #ffc838"><i class="fa fa-instagram"></i> Instagram Followers</span>
+               <div class="count">
+              {{#if platformData.recent.instagram.followers}}
+                {{platformData.recent.instagram.followers}}
+              {{else}}
+                0
+              {{/if}}
+              </div>
+              {{#if direction.instagram.up}}
+                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{change.instagram}}% </i> Since Yesterday</span>
+              {{else if direction.instagram.down}}
+                <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>{{change.instagram}}% </i> Since Yesterday</span>
+              {{else}}
+                <span class="count_bottom"><i class="fa"></i>{{change.instagram}}% Since Yesterday</span>
+              {{/if}}
+              <br>
+              <button class="btn btn-default btn-sm" style="color:grey" onclick="copyToClipboard('#instagramUrl')">Copy Link</button>
+              <input id="instagramUrl" style="visibility: hidden" value={{user.url.instagram}} />
+            </div>
+
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count top">
+              <span class="count_top" style="color: #4099FF"><i class="fa fa-twitter"></i> Twitter Followers</span>
+               <div class="count">
+              {{#if platformData.recent.twitter.followers}}
+                {{platformData.recent.twitter.followers}}
+              {{else}}
+                0
+              {{/if}}
+              </div>
+              {{#if direction.twitter.up}}
+                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{change.twitter}}% </i> Since Yesterday</span>
+              {{else if direction.twitter.down}}
+                <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>{{change.twitter}}% </i> Since Yesterday</span>
+              {{else}}
+                <span class="count_bottom"><i class="fa"></i>{{change.twitter}}% Since Yesterday</span>
+              {{/if}}
+              <br>
+              <button class="btn btn-default btn-sm" style="color:grey" onclick="copyToClipboard('#twitterUrl')">Copy Link</button>
+              <input id="twitterUrl" style="visibility: hidden" value={{user.url.twitter}} />
+            </div>
+
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count top">
+              <span class="count_top" style="color: #3B5998"><i class="fa fa-facebook"></i> Facebook Page Fans</span>
+               <div class="count">
+              {{#if platformData.recent.facebook.followers}}
+                {{platformData.recent.facebook.followers}}
+              {{else}}
+                0
+              {{/if}}
+              </div>
+              {{#if direction.facebook.up}}
+                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{change.facebook}}% </i> Since Yesterday</span>
+              {{else if direction.facebook.down}}
+                <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>{{change.facebook}}% </i> Since Yesterday</span>
+              {{else}}
+                <span class="count_bottom"><i class="fa"></i>{{change.facebook}}% Since Yesterday</span>
+              {{/if}}
+              <br>
+              <button class="btn btn-default btn-sm" style="color:grey" onclick="copyToClipboard('#facebookUrl')">Copy Link</button>
+              <input id="facebookUrl" style="visibility: hidden" value={{user.url.facebook}}/>
+            </div>
+
+          </div>
+
+          <div class="row tile_count" style="margin-bottom: 5px; margin-top: 0">
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count top">
+              <span class="count_top" style="color: #00a478"><i class="fa fa-vine"></i> Vine Followers</span>
+               <div class="count">
+              {{#if platformData.recent.vine.followers}}
+                {{platformData.recent.vine.followers}}
+              {{else}}
+                0
+              {{/if}}
+              </div>
+              {{#if direction.vine.up}}
+                <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>{{change.vine}}% </i> Since Yesterday</span>
+              {{else if direction.vine.down}}
+                <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>{{change.vine}}% </i> Since Yesterday</span>
+              {{else}}
+                <span class="count_bottom"><i class="fa"></i>{{change.vine}}% Since Yesterday</span>
+              {{/if}}
+              <br>
+              <button class="btn btn-default btn-sm"  style="color:grey" onclick="copyToClipboard('#vineUrl')">Copy Link</button>
+              <input id="vineUrl" style="visibility: hidden" value={{user.url.vine}} />
+            </div>
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count top">
+              <span class="count_top" style="color: black"><i class="fa fa-snapchat"></i> Snapchat Followers</span>
+              {{!-- {{#if platformData.recent.snapchat.followers}}
+              <div class="count">{{platformData.recent.snapchat.followers}}</div>
+              {{else}}
+              <div class="count">0</div>
+              {{/if}} --}}
+              <div class="count">
+              {{#if platformData.recent.snapchat.followers}}
+                {{platformData.recent.snapchat.followers}}
+              {{else}}
+                0
+              {{/if}}
+              </div>
+              
+              <button class="btn btn-default btn-sm" style="color:grey" data-toggle="modal" data-target="#snapchat">Update</button>
+              <button class="btn btn-default btn-sm"  style="color:grey" onclick="copyToClipboard('#snapchatUrl')">Copy Link</button>
+              <input id="snapchatUrl" style="visibility: hidden" value={{user.url.snapchat}} />
+            </div>
+
+
+            <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count top">
+              <span class="count_top" style="color: #ff0f50"><i class="fa fa-music"></i> Musical.ly Followers</span>
+               <div class="count">
+              {{#if platformData.recent.music.followers}}
+                {{platformData.recent.music.followers}}
+              {{else}}
+                0
+              {{/if}}
+              </div>
+              <button class="btn btn-default btn-sm" style="color:grey" data-toggle="modal" data-target="#music">Update</button>
+              <button class="btn btn-default btn-sm"  style="color:grey" onclick="copyToClipboard('#musicUrl')">Copy Link</button>
+              <input id="musicUrl" style="visibility: hidden" value={{user.url.music}} />
+            </div>
+
+
+          </div>
+          <div>
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Youtube</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <p class="text-muted font-13 m-b-30">
+                    Broadcast Yourself
+                  </p>
+                  <table id="datatable" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Title</th>
+                        <th>Likes</th>
+                        <th>Dislikes</th>
+                        <th>Views</th>
+                        <th>Comments</th>
+                        <th>Favorites</th>
+                      </tr>
+                    </thead>
+
+
+                    <tbody>
+                      {{#each postData.youtube.posts}}
+                      <tr>
+                        <td>{{this.[0].date}}</td>
+                        <td>{{this.[0].title}}</td>
+                        <td>{{this.[0].likes}} ({{this.[1].likes}}%)</td>
+                        <td>{{this.[0].dislikes}} ({{this.[1].dislikes}}%)</td>
+                        <td>{{this.[0].views}} ({{this.[1].views}}%)</td>
+                        <td>{{this.[0].comments}} ({{this.[1].comments}}%)</td>
+                        <td>{{this.[0].favorites}} ({{this.[1].favorites}}%)</td>
+                      </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="clear-fix"/>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Instagram</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <p class="text-muted font-13 m-b-30">
+                    Capture and Share the World's Moments.
+                  </p>
+                  <table id="datatable2" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Caption</th>
+                        <th>Likes</th>
+                        <th>Comments</th>
+                      </tr>
+                    </thead>
+
+
+                    <tbody>
+                      {{#each postData.instagram.posts}}
+                      <tr>
+                        <td>{{this.[0].date}}</td>
+                        <td>{{this.[0].description}}</td>
+                        <td>{{this.[0].likes}} ({{this.[1].likes}}%)</td>
+                        <td>{{this.[0].comments}} ({{this.[1].comments}}%)</td>
+                      </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Twitter</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <p class="text-muted font-13 m-b-30">
+                    The best way to discover what’s new in your world.
+                  </p>
+                  <table id="datatable5" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Tweet</th>
+                        <th>Retweets</th>
+                        <th>Likes</th>
+                      </tr>
+                    </thead>
+
+
+                    <tbody>
+                      {{#each postData.twitter.posts}}
+                      <tr>
+                        <td>{{this.[0].date}}</td>
+                        <td>{{this.[0].description}}</td>
+                        <td>{{this.[0].shares}} ({{this.[1].shares}}%)</td>
+                        <td>{{this.[0].likes}} ({{this.[1].likes}}%)</td>
+                      </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Facebook</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <p class="text-muted font-13 m-b-30">
+                    Facebook is a social utility that connects you with the people around you
+                  </p>
+                  <table id="datatable4" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Post</th>
+                        <th>Likes</th>
+                        <th>Comments</th>
+                        <th>Shares</th>
+                       
+                      </tr>
+                    </thead>
+
+
+                    <tbody>
+                      {{#each postData.facebook.posts}}
+                      <tr>
+                        <td>{{this.[0].date}}</td>
+                        <td>{{this.[0].description}}</td>
+                        <td>{{this.[0].likes}} ({{this.[1].likes}}%)</td>
+                        <td>{{this.[0].comments}} ({{this.[1].comments}}%)</td>
+                        <td>{{this.[0].shares}} ({{this.[1].shares}}%)</td>
+                      </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="x_panel">
+                <div class="x_title">
+                  <h2>Vine</h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Settings 1</a>
+                        </li>
+                        <li><a href="#">Settings 2</a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                  <p class="text-muted font-13 m-b-30">
+                    Video sharing done right.
+                  </p>
+                  <table id="datatable3" class="table table-striped table-bordered">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Caption</th>
+                        <th>Likes</th>
+                        <th>Loops</th>
+                        <th>Comments</th>
+                        <th>Shares</th>
+                      </tr>
+                    </thead>
+
+
+                    <tbody>
+                      {{#each postData.vine.posts}}
+                      <tr>
+                        <td>{{this.[0].date}}</td>
+                        <td>{{this.[0].description}}</td>
+                        <td>{{this.[0].likes}} ({{this.[1].likes}}%)</td>
+                        <td>{{this.[0].views}} ({{this.[1].views}}%)</td>
+                        <td>{{this.[0].comments}} ({{this.[1].comments}}%)</td>
+                        <td>{{this.[0].shares}} ({{this.[1].shares}}%)</td>
+                      </tr>
+                      {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- /page content -->
+
+      <!-- footer content -->
+      <footer>
+        <div class="pull-right">
+          <a href="/privacy">Privacy Policy</a>
+        </div>
+        <div class="clearfix"></div>
+      </footer>
+      <!-- /footer content -->
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="../vendors/jquery/dist/jquery.min.js"></script>
+  <!-- Bootstrap -->
+  <script src="../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- FastClick -->
+  <script src="../vendors/fastclick/lib/fastclick.js"></script>
+  <!-- NProgress -->
+  <script src="../vendors/nprogress/nprogress.js"></script>
+  <!-- Datatables -->
+  <script src="../vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+  <script src="../vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+  <script src="../vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+  <script src="../vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+  <script src="../vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+  <script src="../vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+  <script src="../vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+  <script src="../vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+  <script src="../vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+  <script src="../vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+  <script src="../vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+  <script src="../vendors/datatables.net-scroller/js/datatables.scroller.min.js"></script>
+  <script src="../vendors/jszip/dist/jszip.min.js"></script>
+  <script src="../vendors/pdfmake/build/pdfmake.min.js"></script>
+  <script src="../vendors/pdfmake/build/vfs_fonts.js"></script>
+
+  <!-- Custom Theme Scripts -->
+  <script src="../build/js/custom.min.js"></script>
+<!-- COPY LINKS BUTTON-->  
+  <script>
+    function copyToClipboard(element) {
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($(element).val()).select();
+      document.execCommand("copy");
+      $temp.remove();
+    }
+  </script>
+  {{!-- modal stuff --}}
+  <script type="text/javascript">
+    $("input[type='checkbox']").change(function() {
+      var textBox = $(this).closest('li').find(".day");
+
+      textBox.attr('disabled', !textBox.attr('disabled'));
+      if (textBox.attr('disabled')) {
+        textBox.css("background-color", "#ccc");
+      }
+      else {
+        textBox.css("background-color", "#fff");
+      }
+    });
+
+    $(".setTrigger").click(function() {
+      $(".triggerForm").submit();
+    })
+  </script>
+
+  <!-- Datatables -->
+  <script>
+    $(document).ready(function() {
+      var handleDataTableButtons = function() {
+        if ($("#datatable-buttons").length) {
+          $("#datatable-buttons").DataTable({
+            dom: "Bfrtip",
+            buttons: [
+              {
+                extend: "copy",
+                className: "btn-sm"
+              },
+              {
+                extend: "csv",
+                className: "btn-sm"
+              },
+              {
+                extend: "excel",
+                className: "btn-sm"
+              },
+              {
+                extend: "pdfHtml5",
+                className: "btn-sm"
+              },
+              {
+                extend: "print",
+                className: "btn-sm"
+              },
+            ],
+            responsive: true
+          });
+        }
+      };
+
+      TableManageButtons = function() {
+        "use strict";
+        return {
+          init: function() {
+            handleDataTableButtons();
+          }
+        };
+      }();
+
+      // table 1
+      $('#datatable').dataTable();
+      $('#datatable-keytable').DataTable({
+        keys: true
+      });
+
+      $('#datatable-responsive').DataTable();
+
+      $('#datatable-scroller').DataTable({
+        ajax: "js/datatables/json/scroller-demo.json",
+        deferRender: true,
+        scrollY: 380,
+        scrollCollapse: true,
+        scroller: true
+      });
+
+      var table = $('#datatable-fixed-header').DataTable({
+        fixedHeader: true
+      });
+
+      // table 2
+      $('#datatable2').dataTable();
+      $('#datatable-keytable2').DataTable({
+        keys: true
+      });
+
+      $('#datatable-responsive2').DataTable();
+
+      $('#datatable-scroller2').DataTable({
+        ajax: "js/datatables/json/scroller-demo.json",
+        deferRender: true,
+        scrollY: 380,
+        scrollCollapse: true,
+        scroller: true
+      });
+
+      var table = $('#datatable-fixed-header2').DataTable({
+        fixedHeader: true
+      });
+
+      // table 3
+      $('#datatable3').dataTable();
+      $('#datatable-keytable3').DataTable({
+        keys: true
+      });
+
+      $('#datatable-responsive3').DataTable();
+
+      $('#datatable-scroller3').DataTable({
+        ajax: "js/datatables/json/scroller-demo.json",
+        deferRender: true,
+        scrollY: 380,
+        scrollCollapse: true,
+        scroller: true
+      });
+
+      var table = $('#datatable-fixed-header3').DataTable({
+        fixedHeader: true
+      });
+
+      // table 4
+      $('#datatable4').dataTable();
+      $('#datatable-keytable4').DataTable({
+        keys: true
+      });
+
+      $('#datatable-responsive4').DataTable();
+
+      $('#datatable-scroller4').DataTable({
+        ajax: "js/datatables/json/scroller-demo.json",
+        deferRender: true,
+        scrollY: 380,
+        scrollCollapse: true,
+        scroller: true
+      });
+
+      var table = $('#datatable-fixed-header4').DataTable({
+        fixedHeader: true
+      });
+
+      //table 5
+      $('#datatable5').dataTable();
+      $('#datatable-keytable5').DataTable({
+        keys: true
+      });
+
+      $('#datatable-responsive5').DataTable();
+
+      $('#datatable-scroller5').DataTable({
+        ajax: "js/datatables/json/scroller-demo.json",
+        deferRender: true,
+        scrollY: 380,
+        scrollCollapse: true,
+        scroller: true
+      });
+
+      var table = $('#datatable-fixed-header5').DataTable({
+        fixedHeader: true
+      });
+
+      TableManageButtons.init();
+    });
+  </script>
+  <!-- /Datatables -->
+</body>
